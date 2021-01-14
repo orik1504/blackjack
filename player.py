@@ -1,14 +1,14 @@
 import random
 class Player():
     
-    def __init__(self, name, money):
+    def __init__(self, name,):
         welcome = ("Welcome {}")
         print (welcome.format(name))
         self.player_cards = []
         self.__start()
         self.__sum = 0
         self.__sum_of_cards()
-        self.money = money
+        self.money = 1000
         self.offer = 0
         self.sum_bets = 0
 
