@@ -8,4 +8,4 @@ name = input("Enter your name")
 name = Player(name)
 
 while run:
-    
+    pass
