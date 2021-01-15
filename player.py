@@ -15,6 +15,9 @@ class Player():
     
     def drew_card(self,):
         self.card = random.randint(1,13)
+        if self.card == 1:
+            print ("Do you want that card will be 1 or 11?")
+            self.card = input()
         self.player_cards.append(self.card)
     
     def __start (self,):
