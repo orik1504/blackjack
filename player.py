@@ -33,10 +33,13 @@ class Player():
             self.drew_card()
 
     def __sum_of_cards(self,):
-        self.sum += self.__card
+        while self.money > 0:
+            self.sum += self.__card
 
     def bet(self, offer):
-        self.money -= int(offer)
+        if self.money > 0:
+            self.money -= int(offer)
+        print("You can't bet, you have 0 dollars")
 
     def sum_of_bets(self,):
         self.sum_bets += self.offer
@@ -50,7 +53,7 @@ class Player():
             offer = input("What is your offer?")
             self.bet(offer)
         else:
-            pass
+            None
 
     def print_all(self,):
         print(f"Your cards are:{self.cards}",
