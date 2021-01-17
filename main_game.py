@@ -4,8 +4,10 @@ from dealer import Dealer
 
 # -- VARIABLES -- #
 run = True
-name = input("Enter your name")
-name = Player(name)
+temp = input("Enter your name")
+name = Player(temp)
 
 while run:
-    pass
+    name.print_all()
+    name.choice()
+    name.print_all()
