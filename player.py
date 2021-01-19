@@ -10,6 +10,7 @@ class Player():
         self.money = 1000
         self.offer = 0
         self.sum_bets = 0
+        self.__card = 0
         self.__start()
 
     def drew_card(self,):
@@ -29,12 +30,11 @@ class Player():
             self.__card = 10
 
     def __start(self,):
-        for i in range(2):
+        for _ in range(2):
             self.drew_card()
 
     def __sum_of_cards(self,):
-        while self.money > 0:
-            self.sum += self.__card
+        self.sum += self.__card
 
     def bet(self, offer):
         if self.money > 0:
@@ -42,7 +42,8 @@ class Player():
         print("You can't bet, you have 0 dollars")
 
     def sum_of_bets(self,):
-        self.sum_bets += self.offer
+        while self.money > 0:
+            self.sum_bets += self.offer
 
     def choice(self,):
         print("What is your play: \n 1.drew card \n 2.bet \n 3.Nothing")
@@ -52,7 +53,7 @@ class Player():
         elif self.user_input == "2":
             offer = input("What is your offer?")
             self.bet(offer)
-        else:
+        elif self.user_input == "3":
             None
 
     def print_all(self,):
