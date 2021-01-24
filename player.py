@@ -53,8 +53,8 @@ class Player():
         elif self.user_input == "2":
             offer = input("What is your offer?")
             self.bet(offer)
-        elif self.user_input == "3":
-            None
+
+        return self.user_input == "3"
 
     def print_all(self,):
         print(f"Your cards are:{self.cards}",
