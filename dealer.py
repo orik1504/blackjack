@@ -9,14 +9,11 @@ class Dealer():
     @classmethod
     def drew_card(cls,):
         card = random.randint(1, 13)
+        if card > 10:
+            card = 10
         cls.cards.append(card)
+        cls.sum_of_cards(card)
 
     @classmethod
-    def sum_of_cards(cls):
-        for item in cls.cards:
-            cls.sum += item
-
-    @classmethod
-    def drew_and_sum(cls,):
-        cls.drew_card()
-        cls.sum_of_cards()
+    def sum_of_cards(cls, card):
+        cls.sum += card
