@@ -7,7 +7,11 @@ run = True
 temp = input("Enter your name")
 name = Player(temp)
 
+name.print_all()
+
 while run:
-    name.print_all()
-    name.choice()
-    name.print_all()
+    answer = name.choice()
+    while not answer:
+        name.print_all()
+        answer = name.choice()
+    exit()
