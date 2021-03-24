@@ -3,59 +3,55 @@ import random
 
 class Player():
 
-    def __init__(self, name,):
-        print(f"Welcome {name}")
-        self.cards = []
-        self.sum = 0
-        self.money = 1000
-        self.offer = 0
-        self.sum_bets = 0
-        self.__card = 0
-        self.__start()
+    def __init__(self,):
+        ''' creating new player start funcs '''
+        self.cards = []  # the player cards
+        self.money = 1000  # the start cash value for the player
+        self.sum = 0  # the player sum of cards
 
-    def drew_card(self,):
-        self.__card = random.randint(1, 13)
-        self.__turn_13_to_10()
-        self.__one_or_eleven()
-        self.__sum_of_cards()
-
-    def __one_or_eleven(self,):
-        if self.__card == 1:
-            print("Do you want that card will be 1 or 11?")
-            self.__card = int(input())
-        self.cards.append(self.__card)
-
-    def __turn_13_to_10(self):
-        if self.__card > 10:
-            self.__card = 10
-
-    def __start(self,):
-        for _ in range(2):
-            self.drew_card()
-
-    def __sum_of_cards(self,):
-        self.sum += self.__card
+    def drew_card(self):
+        ''' the player add a card to his pile '''
+        card = random.randint(1, 13)
+        card = self.__convert_to_ten(card)
+        card = self.__one_or_eleven(card)
+        self.cards.append(card)
 
     def bet(self, offer):
-        if self.money > 0:
-            self.money -= int(offer)
-        print("You can't bet, you have 0 dollars")
+        ''' player can make an offer and bet that he will win for doubling his offer back '''
+        if self.money >= offer:
+            self.money -= offer
+        else:
+            print(f" you dont have {offer}$ ")
 
-    def sum_of_bets(self,):
-        while self.money > 0:
-            self.sum_bets += self.offer
+    def __one_or_eleven(self, card):
+        ''' player has the option to choose if the Ace that he got will be a "1" or "11" '''
+        if card == 1:
+            player_answer = int(
+                input("Do you want that the ace will be 1 or 11?"))
+            if player_answer == 1 or player_answer == 11:
+                return player_answer
+            else:
+                raise ValueError("The value must be 1 or 11!")
+        else:
+            return card
 
-    def choice(self,):
-        print("What is your play: \n 1.drew card \n 2.bet \n 3.Nothing")
-        self.user_input = input()
-        if self.user_input == "1":
-            self.drew_card()
-        elif self.user_input == "2":
-            offer = input("What is your offer?")
-            self.bet(offer)
+    def __convert_to_ten(self, card):
+        ''' Player can't have a card that is more than 13 so every time he gets above 10 the card must convert itself to 10, That is just for getting in statistics'''
+        if card > 10:
+            return 10
+        else:
+            return card
 
-        return self.user_input == "3"
+    def sum_cards(self, card):
+        ''' adds the current card to the sum of the player cards ''' 
+        self.sum += card
 
-    def print_all(self,):
-        print(f"Your cards are:{self.cards}",
-              f"Your sum of bets is:{self.sum_bets}", f"You have {self.money} dollars")
+    def split(self, player_cards: list):
+        ''' if the player got the same card value at the start of the round he has the option to split the cards for 2 spareted piles of cards '''
+        if self.cards[0] == self.cards[1]:
+            player_answer = input(
+                "If you want to split the cards for 2 sprate piles?")
+            if player_answer == "yes":
+                pass
+            else:
+                pass
