@@ -10,11 +10,18 @@ class Player():
         self.sum = 0  # the player sum of cards
 
     def drew_card(self):
-        ''' the player add a card to his pile '''
-        card = random.randint(1, 13)
-        card = self.__convert_to_ten(card)
-        card = self.__one_or_eleven(card)
-        self.cards.append(card)
+        ''' The player add a card to his pile '''
+        card = Card()
+        random_card = card.get_random_card()[0]  # want to get only the number
+
+        # converts the card to 10 if above 10
+        random_card = super()._convert_to_ten(random_card)
+
+        # if the card is an Ace the player has the option to change it to 1 or 11
+        random_card = super()._one_or_eleven(random_card)
+
+        self.cards.append(random_card)
+        self.sum(random_card)
 
     def bet(self, offer):
         ''' player can make an offer and bet that he will win for doubling his offer back '''
