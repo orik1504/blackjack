@@ -21,9 +21,3 @@ class Game():
         else:
             return card
 
-while run:
-    answer = name.choice()
-    while not answer:
-        name.print_all()
-        answer = name.choice()
-    exit()
