@@ -8,7 +8,7 @@ class Player(Game):
     def __init__(self,):
         self.cards = list()  # the player cards
         self.money = 1000  # the start cash value for the player
-        self.sum = 0  # the player sum of cards
+        self.sum_of_cards = 0  # the player sum of cards
 
     def drew_card(self):
         ''' The player add a card to his pile '''
