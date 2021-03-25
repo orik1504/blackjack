@@ -1,7 +1,9 @@
 import random
+from main_game import Game
+from card import Card
 
 
-class Player():
+class Player(Game):
 
     def __init__(self,):
         self.cards = list()  # the player cards
