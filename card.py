@@ -19,3 +19,15 @@ class Card():
         self.__check_valid_suit(suit)
         return self.number, self.suit
 
+    def __check_valid_number(self, number):
+        """ Checks if number of card is valid """
+        if not number <= 13 and number > 0:
+            raise ValueError(
+                f"value can't be {number}, must be between 1 to 13")
+        self.number = number
+
+    def __check_valid_suit(self, suit):
+        """ Checks if suit of card is valid """
+        if not suit in self.VALID_SUITS:
+            raise ValueError("Suit is not valid")
+        self.suit = suit
