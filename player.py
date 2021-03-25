@@ -30,35 +30,3 @@ class Player():
         else:
             print(f" you dont have {offer}$ ")
 
-    def __one_or_eleven(self, card):
-        ''' player has the option to choose if the Ace that he got will be a "1" or "11" '''
-        if card == 1:
-            player_answer = int(
-                input("Do you want that the ace will be 1 or 11?"))
-            if player_answer == 1 or player_answer == 11:
-                return player_answer
-            else:
-                raise ValueError("The value must be 1 or 11!")
-        else:
-            return card
-
-    def __convert_to_ten(self, card):
-        ''' Player can't have a card that is more than 13 so every time he gets above 10 the card must convert itself to 10, That is just for getting in statistics'''
-        if card > 10:
-            return 10
-        else:
-            return card
-
-    def sum_cards(self, card):
-        ''' adds the current card to the sum of the player cards ''' 
-        self.sum += card
-
-    def split(self, player_cards: list):
-        ''' if the player got the same card value at the start of the round he has the option to split the cards for 2 spareted piles of cards '''
-        if self.cards[0] == self.cards[1]:
-            player_answer = input(
-                "If you want to split the cards for 2 sprate piles?")
-            if player_answer == "yes":
-                pass
-            else:
-                pass
