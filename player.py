@@ -4,8 +4,7 @@ import random
 class Player():
 
     def __init__(self,):
-        ''' creating new player start funcs '''
-        self.cards = []  # the player cards
+        self.cards = list()  # the player cards
         self.money = 1000  # the start cash value for the player
         self.sum = 0  # the player sum of cards
 
