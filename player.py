@@ -24,7 +24,7 @@ class Player():
         self.sum(random_card)
 
     def bet(self, offer):
-        ''' player can make an offer and bet that he will win for doubling his offer back '''
+        ''' Player can make an offer and bet that he will win for doubling his offer back '''
         if self.money >= offer:
             self.money -= offer
         else:
