@@ -1,6 +1,6 @@
-# -- IMPORTS -- #
-from player import Player
-from dealer import Dealer
+class Game():
+    def __init__(self):
+        pass
 
     def _convert_to_ten(self, card):
         ''' Player can't have a card that is more than 13 so every time he gets above 10 the card must convert itself to 10, That is just for getting in statistics'''
