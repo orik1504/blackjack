@@ -9,7 +9,17 @@ from dealer import Dealer
         else:
             return card
 
-name.print_all()
+    def _one_or_eleven(self, card):
+        ''' Player has the option to choose if an Ace that he got will be a "1" or "11" '''
+        if card == 1:
+            player_answer = int(
+                input("Do you want that the ace will be 1 or 11?"))
+            if player_answer == 1 or player_answer == 11:
+                return player_answer
+            else:
+                raise ValueError("The value must be 1 or 11!")
+        else:
+            return card
 
 while run:
     answer = name.choice()
