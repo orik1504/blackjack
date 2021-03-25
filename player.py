@@ -30,3 +30,6 @@ class Player():
         else:
             print(f" you dont have {offer}$ ")
 
+    def sum(self, card):
+        ''' Adds the current card to the sum of the player cards '''
+        self.sum_of_cards += card
