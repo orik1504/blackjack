@@ -4,8 +4,10 @@ from main_game import Game
 
 class Dealer(Game):  # a computer that doing random stuff
 
-    cards = []
-    sum = 0
+    def __init__(self,):
+        self.cards = []  # the dealer cards
+        self.sum_of_cards = 0  # the sum of the dealers cards
+        self.name = "dealer"
 
     @classmethod
     def drew_card(cls,):
