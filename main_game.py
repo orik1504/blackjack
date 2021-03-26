@@ -39,3 +39,13 @@ class Game():
         else:
             return "draw"
 
+    def check_winner(self, player, dealer):
+        """ returns the winner of the round """
+        if self.__check_if_21(player):
+            self.winner = player.name
+
+        if self.__check_if_21(dealer):
+            self.winner = dealer.name
+
+        self.winner = self.__higher(player, dealer)
+
