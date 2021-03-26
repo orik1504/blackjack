@@ -1,4 +1,7 @@
 class Game():
+
+    winner = None
+
     def __init__(self):
         pass
 
@@ -49,3 +52,8 @@ class Game():
 
         self.winner = self.__higher(player, dealer)
 
+    def is_winner(self):
+        """ checks if there is a winner """
+        if self.winner is not None:
+            return True
+        return False
