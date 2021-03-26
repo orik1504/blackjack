@@ -1,7 +1,8 @@
 import random
+from main_game import Game
 
 
-class Dealer():
+class Dealer(Game):  # a computer that doing random stuff
 
     cards = []
     sum = 0
