@@ -11,7 +11,7 @@ class Player(Game):
         self.sum_of_cards = 0  # the player sum of cards
         self.name = name
 
-    def drew_card(self):
+    def draw_card(self):
         ''' The player add a card to his pile '''
         card = Card()
         random_card = card.get_random_card()[0]  # want to get only the number
