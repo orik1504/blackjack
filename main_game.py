@@ -21,3 +21,9 @@ class Game():
         else:
             return card
 
+    def __check_if_21(self, player) -> bool:
+        """ if the player got 21 he won automaticly """
+        if player.sum_of_cards == 21:
+            return True
+        return False
+
