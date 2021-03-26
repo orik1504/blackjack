@@ -9,14 +9,19 @@ class Dealer(Game):  # a computer that doing random stuff
         self.sum_of_cards = 0  # the sum of the dealers cards
         self.name = "dealer"
 
-    @classmethod
-    def drew_card(cls,):
-        card = random.randint(1, 13)
-        if card > 10:
-            card = 10
-        cls.cards.append(card)
-        cls.sum_of_cards(card)
+    def draw_card(self):
+        """ dealer can  draw a card while his pile sum is not above 17 """
+        if self.sum_of_cards <= 17:
+            card = Card()
+            # want to get only the number
+            random_card = card.get_random_card()[0]
 
-    @classmethod
-    def sum_of_cards(cls, card):
-        cls.sum += card
+            # converts the card to 10 if above 10
+            random_card = super()._convert_to_ten(random_card)
+
+            # if the card is an Ace the player has the option to change it to 1 or 11
+            random_card = self._one_or_eleven(random_card)
+
+            self.cards.append(random_card)
+            self.sum(random_card)
+
