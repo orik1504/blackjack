@@ -9,8 +9,8 @@ class Card():
 
     def get_random_card(self,):
         """ Creates a random card object"""
-        self.__check_valid_number(random.randint(1, 13))
-        self.__check_valid_suit(random.choice(self.VALID_SUITS))
+        self.number = random.randint(1, 13)
+        self.suit = random.choice(self.VALID_SUITS)
         return self.number, self.suit
 
     def set_card(self, number: int, suit: str):
