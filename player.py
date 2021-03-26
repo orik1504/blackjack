@@ -5,10 +5,11 @@ from card import Card
 
 class Player(Game):
 
-    def __init__(self,):
+    def __init__(self, name):
         self.cards = list()  # the player cards
         self.money = 1000  # the start cash value for the player
         self.sum_of_cards = 0  # the player sum of cards
+        self.name = name
 
     def drew_card(self):
         ''' The player add a card to his pile '''
