@@ -27,3 +27,15 @@ class Game():
             return True
         return False
 
+    def __higher(self, player, dealer):
+        """ checks who got the higher score """
+        # TODO: want to get instance of those classes
+        if player.sum_of_cards > dealer.sum_of_cards:
+            return player.name
+
+        elif player.sum_of_cards < dealer.sum_of_cards:
+            return dealer.name
+
+        else:
+            return "draw"
+
