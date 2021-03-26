@@ -29,3 +29,9 @@ class Dealer(Game):  # a computer that doing random stuff
         """ calculates the sum of the dealer cards """
         self.sum_of_cards += card_number
 
+    @staticmethod
+    def _one_or_eleven(card):
+        choices = (1, 11)
+        if card == 1:
+            return random.choice(choices)
+        return card
