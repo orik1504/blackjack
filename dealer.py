@@ -1,5 +1,6 @@
 import random
 from main_game import Game
+from card import Card
 
 
 class Dealer(Game):  # a computer that doing random stuff
