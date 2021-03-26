@@ -25,3 +25,7 @@ class Dealer(Game):  # a computer that doing random stuff
             self.cards.append(random_card)
             self.sum(random_card)
 
+    def sum(self, card_number):
+        """ calculates the sum of the dealer cards """
+        self.sum_of_cards += card_number
+
