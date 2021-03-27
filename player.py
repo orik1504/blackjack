@@ -1,6 +1,6 @@
 import random
 from main_game import Game
-from card import Card
+from card import *
 
 
 class Player(Game):
@@ -8,22 +8,12 @@ class Player(Game):
     def __init__(self, name):
         self.cards = list()  # the player cards
         self.money = 1000  # the start cash value for the player
-        self.sum_of_cards = 0  # the player sum of cards
         self.name = name
 
     def draw_card(self):
         ''' The player add a card to his pile '''
-        card = Card()
-        random_card = card.get_random_card()[0]  # want to get only the number
-
-        # converts the card to 10 if above 10
-        random_card = super()._convert_to_ten(random_card)
-
-        # if the card is an Ace the player has the option to change it to 1 or 11
-        random_card = super()._one_or_eleven(random_card)
-
-        self.cards.append(random_card)
-        self.sum(random_card)
+        card = CardManager.random_card()
+        self.cards.append(BlackJackCard(card))
 
     def bet(self, offer):
         ''' Player can make an offer and bet that he will win for doubling his offer back '''
@@ -32,6 +22,9 @@ class Player(Game):
         else:
             print(f" you dont have {offer}$ ")
 
-    def sum(self, card):
-        ''' Adds the current card to the sum of the player cards '''
-        self.sum_of_cards += card
+    def get_sum(self,):
+
+        return sum([
+            card.card_value
+            for card in self.cards
+        ])
